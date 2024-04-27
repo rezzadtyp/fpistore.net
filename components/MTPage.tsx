@@ -18,9 +18,6 @@ const MTPage = () => {
                     }}
                     className='mt-8 lg:gap-5 flex flex-col lg:flex-row items-center'
                 >
-                    <span className='bg-gradient-to-br text-center from-purple-200 to-primary py-4 bg-clip-text lg:text-end text-4xl font-medium text-transparent md:text-7xl'>
-                        The Website <br /> Under Maintenance
-                    </span>
                     <Image
                         src='/images/fpistore.net.png'
                         alt='fpi'
@@ -35,6 +32,9 @@ const MTPage = () => {
                         height={100}
                         className='lg:hidden '
                     />
+                    <span className='bg-gradient-to-br text-center from-purple-200 to-primary py-4 bg-clip-text lg:text-start text-4xl font-medium text-transparent md:text-7xl'>
+                        Website is <br /> Under Maintenance
+                    </span>
                 </motion.h1>
             </LampContainer>
         </div>
