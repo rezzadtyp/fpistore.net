@@ -25,7 +25,8 @@ const Footer = () => {
                     <span className='px-2'>
                         <p className='text-xs font-conthrax'>FPI Store</p>
                         <p className='text-xs font-extralight'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, excepturi.
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Sit, excepturi.
                         </p>
                         <p className='text-xs font-conthrax'>
                             &copy; 2019-2024

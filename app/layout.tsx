@@ -7,11 +7,10 @@ import "../styles/globals.css"
 
 export const metadata: Metadata = {
     title: {
-        template: "FPI Store | %s",
+        template: "%s | FPI Store",
         default: "FPI Store | App Premium Terpercaya",
     },
-    description:
-        "FPI Store",
+    description: "FPI Store",
     // icons: {
     //     icon: [
     //         {

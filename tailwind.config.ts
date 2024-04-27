@@ -1,3 +1,9 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+const colors = require("tailwindcss/colors")
+const {
+    default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette")
+
 import type { Config } from "tailwindcss"
 
 const config: Config = {
@@ -36,7 +42,7 @@ const config: Config = {
                     700: "#181818",
                     800: "#0d0d0d",
                 },
-                primary: '#9121CA'
+                primary: "#9121CA",
             },
             fontFamily: {
                 fpifont: "'FPIFont', sans-serif",
@@ -49,6 +55,17 @@ const config: Config = {
             // },
         },
     },
-    plugins: [],
+    plugins: [addVariablesForColors],
 }
+function addVariablesForColors({ addBase, theme }: any) {
+    let allColors = flattenColorPalette(theme("colors"))
+    let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    )
+
+    addBase({
+        ":root": newVars,
+    })
+}
+
 export default config
