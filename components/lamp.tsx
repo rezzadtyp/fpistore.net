@@ -38,7 +38,7 @@ export const LampContainer = ({
         >
             <div className='relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 md:hidden'>
                 <motion.div
-                    initial={{ opacity: 0.5, width: "5rem" }}
+                    initial={{ opacity: 0, width: "0rem" }}
                     whileInView={{ opacity: 1, width: "15rem" }}
                     transition={{
                         delay: 0.3,
@@ -54,7 +54,7 @@ export const LampContainer = ({
                     <div className='absolute  w-40 h-[100%] left-0 bg-slate-950  bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]' />
                 </motion.div>
                 <motion.div
-                    initial={{ opacity: 0.5, width: "5rem" }}
+                    initial={{ opacity: 0, width: "0rem" }}
                     whileInView={{ opacity: 1, width: "15rem" }}
                     transition={{
                         delay: 0.3,
@@ -73,7 +73,7 @@ export const LampContainer = ({
                 <div className='absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md'></div>
                 <div className='absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-purple-600 opacity-50 blur-3xl'></div>
                 <motion.div
-                    initial={{ width: "8rem" }}
+                    initial={{ width: "0rem" }}
                     whileInView={{ width: "16rem" }}
                     transition={{
                         delay: 0.3,
@@ -83,7 +83,7 @@ export const LampContainer = ({
                     className='absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-primary blur-2xl'
                 ></motion.div>
                 <motion.div
-                    initial={{ width: "5rem" }}
+                    initial={{ width: "0rem" }}
                     whileInView={{ width: "15rem" }}
                     transition={{
                         delay: 0.3,
@@ -96,7 +96,7 @@ export const LampContainer = ({
             </div>
             <div className='relative w-full flex-1 scale-y-125 items-center justify-center isolate z-0 hidden md:flex'>
                 <motion.div
-                    initial={{ opacity: 0.5, width: "15rem" }}
+                    initial={{ opacity: 0, width: "0rem" }}
                     whileInView={{ opacity: 1, width: "30rem" }}
                     transition={{
                         delay: 0.3,
@@ -112,7 +112,7 @@ export const LampContainer = ({
                     <div className='absolute  w-40 h-[100%] left-0 bg-slate-950  bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]' />
                 </motion.div>
                 <motion.div
-                    initial={{ opacity: 0.5, width: "15rem" }}
+                    initial={{ opacity: 0, width: "0rem" }}
                     whileInView={{ opacity: 1, width: "30rem" }}
                     transition={{
                         delay: 0.3,
@@ -131,7 +131,7 @@ export const LampContainer = ({
                 <div className='absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md'></div>
                 <div className='absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-purple-600 opacity-50 blur-3xl'></div>
                 <motion.div
-                    initial={{ width: "8rem" }}
+                    initial={{ width: "0rem" }}
                     whileInView={{ width: "16rem" }}
                     transition={{
                         delay: 0.3,
@@ -141,7 +141,7 @@ export const LampContainer = ({
                     className='absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-primary blur-2xl'
                 ></motion.div>
                 <motion.div
-                    initial={{ width: "15rem" }}
+                    initial={{ width: "0rem" }}
                     whileInView={{ width: "30rem" }}
                     transition={{
                         delay: 0.3,
