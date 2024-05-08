@@ -3,6 +3,8 @@
 import { motion } from "framer-motion"
 import { LampContainer } from "@/components/lamp"
 import Image from "next/image"
+import { IoInformationCircleOutline } from "react-icons/io5"
+import Link from "next/link"
 
 const MTPage = () => {
     return (
@@ -36,7 +38,7 @@ const MTPage = () => {
                         Website is <br /> Under Maintenance
                     </span>
                 </motion.h1>
-                <motion.h1
+                <motion.h2
                     initial={{ opacity: 0, y: 150 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
@@ -49,8 +51,33 @@ const MTPage = () => {
                     <span className='bg-gradient-to-br text-center from-gray-400 to-gray-700 bg-clip-text lg:text-start font-medium text-transparent'>
                         Be patient, Something big will come soon...
                     </span>
-                </motion.h1>
+                </motion.h2>
             </LampContainer>
+
+            <motion.div
+                initial={{ opacity: 0, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                    delay: 1,
+                    duration: 2,
+                    ease: "easeInOut",
+                }}
+                className='h-full fixed bottom-1 pb-4 flex flex-col justify-end items-center gap-3 w-full animate-pulse'
+            >
+                <span className='text-white'>
+                    Only available for check Detail Order
+                </span>
+                <Link
+                    href='/your-orders'
+                    className='relative inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
+                >
+                    <span className='absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#d8b4fe_0%,#9121CA_50%,#d8b4fe_100%)]' />
+                    <span className='inline-flex h-full gap-2 w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
+                        <span>Your Order Detail</span>
+                        <IoInformationCircleOutline className='text-xl' />
+                    </span>
+                </Link>
+            </motion.div>
         </div>
     )
 }

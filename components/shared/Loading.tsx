@@ -7,18 +7,11 @@ const Loading = () => {
                 <Image
                     width={100}
                     height={100}
-                    src='/icons/AOutlineWhite.webp'
+                    src='/icons/fpiglobe.png'
                     alt='Loading...'
-                    className='hidden dark:block duration-700'
+                    className='duration-700'
                 />
-                <Image
-                    width={100}
-                    height={100}
-                    src='/icons/AOutlineBlack.webp'
-                    alt='Loading...'
-                    className='dark:hidden duration-700'
-                />
-                <p className='font-conthrax text-lg text-transparent bg-gradient-to-bl dark:from-white from-black bg-clip-text cursor-default select-none'>
+                <p className='font-fpifont text-lg text-transparent text-primary bg-clip-text cursor-default select-none'>
                     Loading...
                 </p>
             </div>

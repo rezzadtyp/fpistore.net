@@ -12,7 +12,7 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { FiArrowUpCircle } from "react-icons/fi"
+import Image from "next/image"
 
 const Navbar = () => {
     const navButtons = [
@@ -27,8 +27,8 @@ const Navbar = () => {
             LineColor: "bg-purple-500",
         },
         {
-            title: "Accounts",
-            url: "/accounts",
+            title: "Your Order",
+            url: "/your-orders",
             LineColor: "bg-sky-500",
         },
     ]
@@ -87,15 +87,22 @@ const Navbar = () => {
                 visible ? "translate-y-0" : "-translate-y-full"
             } z-10`}
         >
-            <div className='w-fit gap-10 backdrop-blur-sm dark:bg-dark-600/50 bg-gray-200/50 rounded-xl py-2 flex px-6 justify-between duration-1000 items-center shadow-lg shadow-black/25 dark:shadow-black/70'>
-                <Link
-                    href='/'
-                    className='flex max-md:p-2 select-none items-center gap-1'
-                >
-                    <span className='font-fpifont text-3xl text-primary'>
-                        fpi
-                    </span>
-                    <span className='italic '>Store</span>
+            <div className='w-fit gap-10 backdrop-blur-sm dark:bg-dark-600/50 bg-gray-200/50 rounded-2xl py-1 flex px-6 justify-between duration-1000 items-center shadow-lg shadow-black/25 dark:shadow-black/70'>
+                <Link href='/' className='flex select-none items-center gap-1'>
+                    <Image
+                        width={60}
+                        height={60}
+                        src='/icons/fpistore.netwhite.png'
+                        alt='Footer Picture'
+                        className='hidden dark:block duration-700'
+                    />
+                    <Image
+                        width={60}
+                        height={60}
+                        src='/icons/fpistore.netblack.png'
+                        alt='Footer Picture'
+                        className='dark:hidden duration-700'
+                    />
                 </Link>
                 <div className='flex items-center justify-between gap-5 lg:gap-10'>
                     <div className='max-md:hidden flex lg:text-md'>

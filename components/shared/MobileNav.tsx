@@ -29,8 +29,8 @@ const NavContent = () => {
             LineColor: "bg-purple-500",
         },
         {
-            title: "Accounts",
-            url: "/accounts",
+            title: "Your Order",
+            url: "/your-orders",
             LineColor: "bg-sky-500",
         },
     ]

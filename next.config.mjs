@@ -12,11 +12,6 @@ const nextConfig = {
                 destination: "/maintenance",
                 permanent: false,
             },
-            {
-                source: "/accounts",
-                destination: "/maintenance",
-                permanent: false,
-            },
         ]
     },
 }

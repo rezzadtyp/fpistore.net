@@ -11,18 +11,18 @@ export const metadata: Metadata = {
         default: "FPI Store | App Premium Terpercaya",
     },
     description: "FPI Store",
-    // icons: {
-    //     icon: [
-    //         {
-    //             url: "/icons/ALight.webp",
-    //             media: "(prefers-color-scheme: light)",
-    //         },
-    //         {
-    //             url: "/icons/ADark.webp",
-    //             media: "(prefers-color-scheme: dark)",
-    //         },
-    //     ],
-    // },
+    icons: {
+        icon: [
+            {
+                url: "/icons/fpistore.netblack.png",
+                media: "(prefers-color-scheme: light)",
+            },
+            {
+                url: "/icons/fpistore.netwhite.png",
+                media: "(prefers-color-scheme: dark)",
+            },
+        ],
+    },
     keywords:
         "netflix, premium, 4k, uhd, full garansi, netflix account, netflix premium uhd, netflix murah, netflix shared, netflix private, netflix terpercaya, murah, terpercaya, film terbaru, alamsyah.id, alamsyah, bergaransi",
 }
