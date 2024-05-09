@@ -9,6 +9,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { AiOutlineMenu } from "react-icons/ai"
 import { Roboto } from "next/font/google"
+import Image from "next/image"
 
 const roboto = Roboto({
     weight: ["900"],
@@ -100,15 +101,26 @@ const MobileNav = () => {
             </SheetTrigger>
             <SheetContent
                 side='top'
-                className='border-none text-red-500 backdrop-blur-lg dark:bg-dark-800/50 shadow-lg shadow-black/50'
+                className='border-none text-red-500 backdrop-blur-lg bg-white dark:bg-dark-800/50 shadow-lg shadow-black/50'
             >
                 <Link
                     href='/'
-                    className='flex items-center gap-1 border-b-[1px] border-dark-500/50 dark:border-gray-500/50 py-2'
+                    className='flex items-center justify-center gap-1 border-b-[1px] border-dark-500/50 dark:border-gray-500/50 py-2'
                 >
-                    <p className='font-conthrax text-lg text-dark-800 dark:text-gray-300'>
-                        ALAMSYAH.ID
-                    </p>
+                    <Image
+                        width={60}
+                        height={60}
+                        src='/icons/fpistore.netwhite.png'
+                        alt='Footer Picture'
+                        className='hidden dark:block duration-700'
+                    />
+                    <Image
+                        width={60}
+                        height={60}
+                        src='/icons/fpistore.netblack.png'
+                        alt='Footer Picture'
+                        className='dark:hidden duration-700'
+                    />
                 </Link>
                 <div className='text-dark-800 dark:text-gray-300'>
                     <NavContent />
