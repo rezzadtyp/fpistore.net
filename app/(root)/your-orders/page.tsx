@@ -5,6 +5,16 @@ import { unstable_noStore } from "next/cache"
 import Link from "next/link"
 import { Roboto } from "next/font/google"
 import { IoInformationCircleOutline } from "react-icons/io5"
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableFooter,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
 
 const roboto = Roboto({
     weight: ["900"],
@@ -14,7 +24,7 @@ const roboto = Roboto({
 
 const Page = async () => {
     unstable_noStore()
-    const { Private, Shared, allData, Stock } = await fetchData()
+    const { allData, Stock } = await fetchData()
     const StockPrivate = Stock[0][0]
     const StockShared = Stock[0][1]
     return (
@@ -79,7 +89,40 @@ const Page = async () => {
                     </p>
                 </div>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 w-full overflow-auto max-h-screen'>
+            <div className='overflow-auto max-h-96'>
+                <Table>
+                    <TableCaption>A list of your recent invoices.</TableCaption>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead className='w-[100px]'>
+                                Type Netflix
+                            </TableHead>
+                            <TableHead>Status</TableHead>
+                            <TableHead>Method</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {allData.map((row: any, i: number) => (
+                            <TableRow key={i}>
+                                <TableCell className='font-medium'>
+                                    Netflix {row[0]}
+                                </TableCell>
+                                <TableCell>{censorEmail(row[2])}</TableCell>
+                                <TableCell>{row[6]}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                    <TableFooter>
+                        <TableRow>
+                            <TableCell colSpan={3}>Total</TableCell>
+                            <TableCell className='text-right'>
+                                $2,500.00
+                            </TableCell>
+                        </TableRow>
+                    </TableFooter>
+                </Table>
+            </div>
+            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 w-full overflow-auto max-h-screen'>
                 {allData.map((row: any, i: number) => (
                     <div
                         key={i}
@@ -188,7 +231,7 @@ const Page = async () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

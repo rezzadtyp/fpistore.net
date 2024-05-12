@@ -87,7 +87,7 @@ const Navbar = () => {
                 visible ? "translate-y-0" : "-translate-y-full"
             } z-10`}
         >
-            <div className='w-fit gap-10 backdrop-blur-sm dark:bg-dark-600/50 bg-gray-200/50 rounded-2xl py-1 flex px-6 justify-between duration-1000 items-center shadow-lg shadow-black/25 dark:shadow-black/70'>
+            <div className='w-fit gap-10 backdrop-blur-sm dark:bg-dark-600/50 bg-gray-200/50 rounded-3xl md:rounded-2xl py-1 flex px-6 justify-between duration-1000 items-center shadow-lg shadow-black/25 dark:shadow-black/70'>
                 <Link href='/' className='flex select-none items-center gap-1'>
                     <Image
                         width={60}
@@ -155,10 +155,11 @@ const Navbar = () => {
                             </DropdownMenu>
                         </div>
                     </div>
+                    <div className='h-10 w-[1px] bg-dark-500 md:hidden' />
                     <div className='flex justify-center items-center gap-3 md:gap-5 lg:gap-5'>
                         <button
                             onClick={handleThemeSwitch}
-                            className='relative items-center justify-center p-2 transition-transform duration-500 max-md:dark:bg-white/10 md:bg-black/5 hover:dark:bg-white/10 hover:bg-black/5 rounded-full'
+                            className='relative items-center justify-center p-2 transition-transform duration-500 md:bg-black/5 dark:hover:bg-white/10 hover:bg-black/5 rounded-full'
                         >
                             <BsSunFill className='absolute text-lg opacity-0 dark:opacity-100 lg:text-xl duration-500 text-dark-800 dark:text-gray-300' />
                             <BsFillMoonStarsFill className='text-lg dark:opacity-0 lg:text-xl duration-500 text-dark-800 dark:text-gray-300' />

@@ -54,7 +54,7 @@ const MTPage = () => {
                 </motion.h2>
             </LampContainer>
 
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
@@ -77,7 +77,7 @@ const MTPage = () => {
                         <IoInformationCircleOutline className='text-xl' />
                     </span>
                 </Link>
-            </motion.div>
+            </motion.div> */}
         </div>
     )
 }
