@@ -89,7 +89,7 @@ const Page = async () => {
                     </p>
                 </div>
             </div>
-            <div className='overflow-auto max-h-96'>
+            {/* <div className='overflow-auto max-h-96'>
                 <Table>
                     <TableCaption>A list of your recent invoices.</TableCaption>
                     <TableHeader>
@@ -121,18 +121,14 @@ const Page = async () => {
                         </TableRow>
                     </TableFooter>
                 </Table>
-            </div>
-            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 w-full overflow-auto max-h-screen'>
+            </div> */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 w-full overflow-auto max-h-screen'>
                 {allData.map((row: any, i: number) => (
                     <div
                         key={i}
-                        className={`rounded-3xl p-5 lg:p-10 shadow-md hover:shadow-xl duration-300 h-fit group border-2 border-white dark:border-dark-400 bg-gradient-to-bl from-gray-50 from-15% via-gray-100 to-gray-200 dark:from-dark-500 dark:from-15% dark:via-dark-600 via-40% dark:to-dark-700 to-90% ${
-                            row[0] === "SHARED" &&
-                            " shadow-fuchsia-500 hover:shadow-fuchsia-500/50 "
-                        } ${
-                            row[0] === "PRIVATE" &&
-                            " shadow-purple-500 hover:shadow-purple-500/50 "
-                        }
+                        className={`rounded-3xl duration-1000 p-5 lg:p-10 shadow-md h-fit group border-2 border-white dark:border-dark-400 bg-gradient-to-bl from-gray-50 from-15% via-gray-100 to-gray-200 dark:from-dark-500 dark:from-15% dark:via-dark-600 via-40% dark:to-dark-700 to-90% ${
+                            row[0] === "SHARED" && " shadow-fuchsia-500 "
+                        } ${row[0] === "PRIVATE" && " shadow-purple-500 "}
                         `}
                     >
                         <div className='font-fpifont w-full flex justify-end items-start'>
@@ -231,7 +227,7 @@ const Page = async () => {
                         </div>
                     </div>
                 ))}
-            </div> */}
+            </div>
         </div>
     )
 }
