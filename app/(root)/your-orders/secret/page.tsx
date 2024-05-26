@@ -1,9 +1,9 @@
 "use client"
 import React, { useState } from "react"
 import { usePathname } from "next/navigation"
-import { RiKeyLine } from "react-icons/ri"
 import { Roboto } from "next/font/google"
 import { BsShieldLock } from "react-icons/bs"
+import { MdAlternateEmail } from "react-icons/md"
 
 const roboto = Roboto({
     weight: ["900"],
@@ -17,11 +17,11 @@ const MyComponent: React.FC<MyComponentProps> = () => {
     const [Accounts, setAccounts] = useState("")
     const currentPathname = usePathname()
     const handleClick = () => {
-        if (Accounts.length < 21) {
-            alert("Masukan (21 Digit) Secret ID!")
+        if (Accounts.length < 10) {
+            alert("Input your Username (10 Characters)!")
             return
-        } else if (Accounts.length < 21) {
-            alert("Masukan (21 Digit) Secret ID!")
+        } else if (Accounts.length < 10) {
+            alert("Input your Username (10 Characters)!")
             return
         }
 
@@ -39,37 +39,34 @@ const MyComponent: React.FC<MyComponentProps> = () => {
                 <div className='p-5 flex gap-2 items-center justify-center'>
                     <BsShieldLock className='text-5xl' />
                     <div>
-                        <p className='font-conthrax'>Secret ID</p>
-                        <p className='font-extralight text-xs'>
-                            21 Digit Personal ID
-                        </p>
+                        <p className='font-conthrax'>Username</p>
+                        <p className='font-extralight text-xs'>10 Characters</p>
                     </div>
                 </div>
                 <div className='flex gap-1 px-3 items-center w-full focus:ring-1 focus:ring-fuchsia-500 dark:bg-dark-600 bg-white drop-shadow-md border-white/30 border rounded-lg'>
-                    <RiKeyLine className='text-2xl ml-1' />
+                    <MdAlternateEmail className='text-2xl ml-1' />
                     <input
                         type='text'
-                        placeholder='Enter your Secret ID'
+                        placeholder='Enter your Username'
                         value={Accounts}
                         onChange={(e) => setAccounts(e.target.value)}
                         className='focus:outline-none h-full focus:border w-full md:w-96 lg:w-96 -fuchsia-500 bg-transparent p-3 rounded-lg border-none'
                     />
                 </div>
+
                 <button
                     onClick={handleClick}
-                    className='relative w-fit h-fit my-7'
+                    className='relative my-5 inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 group'
                 >
-                    <div className='absolute -inset-1 bg-gradient-to-br from-cyan-600 to-fuchsia-600 rounded-lg blur py-4 px-6 transition hover:opacity-100 hover:blur-md '></div>
-                    <div
-                        className={`relative duration-500 md:text-md lg:text-xl border-white rounded-lg flex items-center justify-center py-2 px-4 text-gray-200 dark:text-dark-700 dark:bg-gray-100 bg-dark-600 w-fit hover:bg-dark-700 dark:hover:bg-gray-300 active:bg-black dark:active:bg-gray-400 ${roboto.className}`}
-                    >
-                        See My Accounts
-                    </div>
+                    <span className='absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#d8b4fe_0%,#9121CA_50%,#d8b4fe_100%)]' />
+                    <span className='inline-flex h-full gap-2 w-full cursor-pointer items-center justify-center rounded-full dark:bg-dark-700 bg-gray-100 px-3 py-1 text-sm font-medium group-hover:text-gray-300 dark:text-white backdrop-blur-3xl'>
+                        <span>Your Order Detail</span>
+                    </span>
                 </button>
                 <p className='w-full text-center text-red-500 text-xs capitalize'>
-                    Jangan Menyebarkan Secret ID mu!,
+                    Jangan Menyebarkan Username mu!,
                     <br />
-                    Jika Menyebarkan Secret ID sama dengan menyebarkan
+                    Jika Menyebarkan Username sama dengan menyebarkan
                     <br />
                     semua akses pada akun netflix yang telah kamu beli
                 </p>

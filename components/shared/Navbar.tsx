@@ -133,7 +133,7 @@ const Navbar = () => {
                                         /> */}
                                 </Link>
                             ))}
-                            <DropdownMenu>
+                            {/* <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <div className='dark:text-gray-400 flex items-center gap-1 py-2 md:text-sm font-medium group cursor-pointer'>
                                         Contact
@@ -152,7 +152,7 @@ const Navbar = () => {
                                         </Link>
                                     ))}
                                 </DropdownMenuContent>
-                            </DropdownMenu>
+                            </DropdownMenu> */}
                         </div>
                     </div>
                     <div className='h-10 w-[1px] bg-dark-500 md:hidden' />
