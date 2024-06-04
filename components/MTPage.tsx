@@ -3,13 +3,14 @@
 import { motion } from "framer-motion"
 import { LampContainer } from "@/components/lamp"
 import Image from "next/image"
-import { IoInformationCircleOutline } from "react-icons/io5"
+import { PiListMagnifyingGlassLight } from "react-icons/pi"
 import Link from "next/link"
+import FPIButton from "./shared/FPIButton"
 
 const MTPage = () => {
     return (
         <div className='absolute z-[999] w-screen h-screen top-0 left-0'>
-            <LampContainer>
+            <LampContainer className='flex justify-evenly'>
                 <motion.h1
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -52,22 +53,33 @@ const MTPage = () => {
                         Be patient, Something big will come soon...
                     </span>
                 </motion.h2>
-            </LampContainer>
-
-            {/* <motion.div
-                initial={{ opacity: 0, y: 0 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: 1,
-                    duration: 2,
-                    ease: "easeInOut",
-                }}
-                className='h-full fixed bottom-1 pb-4 flex flex-col justify-end items-center gap-3 w-full animate-pulse'
-            >
-                <span className='text-white'>
-                    Only available for check Detail Order
-                </span>
-                <Link
+                <motion.div
+                    initial={{ opacity: 0, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                        delay: 1,
+                        duration: 2,
+                        ease: "easeInOut",
+                    }}
+                    className='h-full pb-4 pt-16 flex flex-col justify-end items-center gap-3 w-full'
+                >
+                    <FPIButton
+                        className='gap-5 flex items-center !px-5 !py-4 !rounded-2xl'
+                        onClick={() => {
+                            window.location.href = "/your-orders"
+                        }}
+                    >
+                        <div className='rounded-md bg-primary/30 p-2'>
+                            <PiListMagnifyingGlassLight className='text-3xl ' />
+                        </div>
+                        <span className='flex flex-col items-start'>
+                            Your Order Detail
+                            <p className='font-thin text-white/55'>
+                                Check your orders detail with Username
+                            </p>
+                        </span>
+                    </FPIButton>
+                    {/* <Link
                     href='/your-orders'
                     className='relative inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
                 >
@@ -76,8 +88,9 @@ const MTPage = () => {
                         <span>Your Order Detail</span>
                         <IoInformationCircleOutline className='text-xl' />
                     </span>
-                </Link>
-            </motion.div> */}
+                </Link> */}
+                </motion.div>
+            </LampContainer>
         </div>
     )
 }
