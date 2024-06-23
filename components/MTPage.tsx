@@ -64,31 +64,21 @@ const MTPage = () => {
                     className='h-full pb-4 pt-16 flex flex-col justify-end items-center gap-3 w-full'
                 >
                     <FPIButton
-                        className='gap-5 flex items-center !px-5 !py-4 !rounded-2xl'
+                        className='gap-5 flex !px-5 !py-4 !rounded-2xl text-start w-fit !bg-dark-500 text-white'
                         onClick={() => {
                             window.location.href = "/your-orders"
                         }}
                     >
-                        <div className='rounded-md bg-primary/30 p-2'>
-                            <PiListMagnifyingGlassLight className='text-3xl ' />
+                        <div className='rounded-md bg-primary/20 p-2'>
+                            <PiListMagnifyingGlassLight className='text-3xl text-primary' />
                         </div>
-                        <span className='flex flex-col items-start'>
+                        <span className='flex flex-col text-start'>
                             Your Order Detail
-                            <p className='font-thin text-white/55'>
+                            <p className='font-thin'>
                                 Check your orders detail with Username
                             </p>
                         </span>
                     </FPIButton>
-                    {/* <Link
-                    href='/your-orders'
-                    className='relative inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
-                >
-                    <span className='absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#d8b4fe_0%,#9121CA_50%,#d8b4fe_100%)]' />
-                    <span className='inline-flex h-full gap-2 w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
-                        <span>Your Order Detail</span>
-                        <IoInformationCircleOutline className='text-xl' />
-                    </span>
-                </Link> */}
                 </motion.div>
             </LampContainer>
         </div>

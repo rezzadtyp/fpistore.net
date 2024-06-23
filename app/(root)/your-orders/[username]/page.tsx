@@ -13,22 +13,23 @@ import {
 } from "@/components/ui/dialog"
 import { GoArrowUpRight } from "react-icons/go"
 
-const page = async ({ params }: { params: { secretId: string } }) => {
-    const secretID = params.secretId
-    const { allData } = await fetchData()
+const page = async ({ params }: { params: { username: string } }) => {
+    const username = params.username
+    const { allData, allShopee } = await fetchData()
     function matchData(data: string[][]): string[][] {
         const matches: string[][] = []
 
         for (const sublist of data) {
-            if (sublist[1] === secretID) {
+            if (sublist[1] === username) {
                 matches.push(sublist)
             }
         }
 
         return matches
-        // return matches.length > 0 ? matches : "not found"
     }
-    const data = matchData(allData)
+
+    const FPIAndShopee = allData.concat(allShopee)
+    const data = matchData(FPIAndShopee)
     return (
         <Suspense fallback={<Loading />}>
             <div className='w-full justify-center items-start flex px-5'>
@@ -36,9 +37,9 @@ const page = async ({ params }: { params: { secretId: string } }) => {
                     <div className='flex gap-2 items-center justify-start pt-5'>
                         <BsShieldLock className='text-6xl' />
                         <div>
-                            <p className='font-conthrax text-xl'>Secret ID</p>
+                            <p className='font-conthrax text-xl'>Username</p>
                             <p className='font-extralight text-sm'>
-                                {secretID}
+                                {username}
                             </p>
                         </div>
                     </div>
@@ -46,7 +47,7 @@ const page = async ({ params }: { params: { secretId: string } }) => {
                         {data.length > 0 ? (
                             data.map(
                                 (row: any, i: number) =>
-                                    row[1] === secretID && (
+                                    row[1] === username && (
                                         <div
                                             key={i}
                                             className={`flex duration-1000 p-3 gap-4 border-b-[1px] h-fit ${
@@ -212,7 +213,7 @@ const page = async ({ params }: { params: { secretId: string } }) => {
                         ) : (
                             <div className='w-full h-32 flex flex-col items-start justify-center'>
                                 <p className='font-conthrax text-2xl'>
-                                    Secret ID Tidak Valid!
+                                    Username Salah!
                                 </p>
                                 <p className='font-thin'>
                                     Hubungi admin untuk informasi lebih lanjut

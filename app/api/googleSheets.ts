@@ -81,6 +81,27 @@ export const fetchData = async () => {
         process.env.SPREADSHEET_ID as string,
         process.env.SHARED_SHEETS as string
     )) as string[][]
+
+    const dataShopeeDedenPivate = (await getGoogleSheetsData(
+        process.env.SHOPEE_DEDEN_SPREADSHEET_ID as string,
+        process.env.SHOPEE_PRIVATE_SHEETS as string
+    )) as string[][]
+
+    const dataShopeeRifqiPivate = (await getGoogleSheetsData(
+        process.env.SHOPEE_RIFQI_SPREADSHEET_ID as string,
+        process.env.SHOPEE_PRIVATE_SHEETS as string
+    )) as string[][]
+
+    const dataShopeeDedenShared = (await getGoogleSheetsData(
+        process.env.SHOPEE_DEDEN_SPREADSHEET_ID as string,
+        process.env.SHOPEE_SHARED_SHEETS as string
+    )) as string[][]
+
+    const dataShopeeRifqiShared = (await getGoogleSheetsData(
+        process.env.SHOPEE_RIFQI_SPREADSHEET_ID as string,
+        process.env.SHOPEE_SHARED_SHEETS as string
+    )) as string[][]
+
     const infoStock = (await getGoogleSheetsData(
         process.env.SPREADSHEET_ID as string,
         process.env.STOCK_SHEETS as string
@@ -89,6 +110,17 @@ export const fetchData = async () => {
     const PrivateFormated = formatData(dataPivate)
     const SharedFormated = formatData(dataShared)
     const StockFormated = formatData(infoStock)
+    const ShopeeDedenPrivateFormated = formatData(dataShopeeDedenPivate)
+    const ShopeeRifqiPrivateFormated = formatData(dataShopeeRifqiPivate)
+    const ShopeeDedenSharedFormated = formatData(dataShopeeDedenShared)
+    const ShopeeRifqiSharedFormated = formatData(dataShopeeRifqiShared)
+    const ShopeeDedenPrivate = ShopeeDedenPrivateFormated.slice(1)
+    const ShopeeRifqiPrivate = ShopeeRifqiPrivateFormated.slice(1)
+    const ShopeeDedenShared = ShopeeDedenSharedFormated.slice(1)
+    const ShopeeRifqiShared = ShopeeRifqiSharedFormated.slice(1)
+    const ShopeeDeden = [...ShopeeDedenPrivate, ...ShopeeDedenShared]
+    const ShopeeRifqi = [...ShopeeRifqiPrivate, ...ShopeeRifqiShared]
+    const Shopee = [...ShopeeDeden, ...ShopeeRifqi]
     const PrivateData = PrivateFormated.slice(1)
     const SharedData = SharedFormated.slice(1)
     const Stock = StockFormated.slice(1)
@@ -109,8 +141,35 @@ export const fetchData = async () => {
                 innerArray[0] === "PRIVATE" || innerArray[0] === "SHARED"
         )
     }
+
+    const getShopeePrivateOnly = (data: string[][]): string[][] => {
+        return data.filter((innerArray) => innerArray[0] === "shopeePRIVATE")
+    }
+
+    const getShopeeSharedOnly = (data: string[][]): string[][] => {
+        return data.filter((innerArray) => innerArray[0] === "shopeeSHARED")
+    }
+
+    const getShopeeAll = (data: string[][]): string[][] => {
+        return data.filter(
+            (innerArray) =>
+                innerArray[0] === "shopeePRIVATE" ||
+                innerArray[0] === "shopeeSHARED"
+        )
+    }
+    const allShopee = getShopeeAll(Shopee)
+    const ShopeeShared = getShopeeSharedOnly(Shopee)
+    const ShopeePrivate = getShopeePrivateOnly(Shopee)
     const Private = getPrivateOnly(Data)
     const Shared = getSharedOnly(Data)
     const allData = getAll(Data)
-    return { Private, Shared, allData, Stock }
+    return {
+        Private,
+        Shared,
+        allData,
+        allShopee,
+        ShopeeShared,
+        ShopeePrivate,
+        Stock,
+    }
 }

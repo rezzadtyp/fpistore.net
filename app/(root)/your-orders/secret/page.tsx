@@ -1,27 +1,20 @@
 "use client"
 import React, { useState } from "react"
 import { usePathname } from "next/navigation"
-import { Roboto } from "next/font/google"
 import { BsShieldLock } from "react-icons/bs"
 import { MdAlternateEmail } from "react-icons/md"
 
-const roboto = Roboto({
-    weight: ["900"],
-    style: ["normal"],
-    subsets: ["latin"],
-})
+interface PageProps {}
 
-interface MyComponentProps {}
-
-const MyComponent: React.FC<MyComponentProps> = () => {
+const Page: React.FC<PageProps> = () => {
     const [Accounts, setAccounts] = useState("")
     const currentPathname = usePathname()
     const handleClick = () => {
-        if (Accounts.length < 10) {
-            alert("Input your Username (10 Characters)!")
+        if (Accounts.length < 5) {
+            alert("Input your Username (5 Characters)!")
             return
-        } else if (Accounts.length < 10) {
-            alert("Input your Username (10 Characters)!")
+        } else if (Accounts.length < 5) {
+            alert("Input your Username (5 Characters)!")
             return
         }
 
@@ -75,4 +68,4 @@ const MyComponent: React.FC<MyComponentProps> = () => {
     )
 }
 
-export default MyComponent
+export default Page

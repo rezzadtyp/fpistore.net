@@ -49,14 +49,25 @@ body {
     @apply bg-gray-600 rounded-full absolute right-0 z-50;
 }
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    @apply bg-sky-500;
+._custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+}
+._custom-scrollbar-shopee::-webkit-scrollbar-thumb:hover {
+    @apply bg-shopee;
 }
 ._custom-scrollbar::-webkit-scrollbar {
     @apply w-2 h-0 bg-transparent;
 }
+._custom-scrollbar-shopee::-webkit-scrollbar {
+    @apply w-2 h-0 bg-transparent;
+}
 ._product-scrollbar::-webkit-scrollbar {
     @apply w-0 h-2;
+}
+.__stroke {
+    color: transparent;
+    -webkit-text-stroke: 2px #9121ca;
+    text-stroke: 2px #9121ca;
 }
 
 @keyframes rightleft {

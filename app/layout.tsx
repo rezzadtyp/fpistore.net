@@ -35,8 +35,8 @@ export default function RootLayout({
     return (
         <>
             {/* <GoogleAnalytics measurementId='G-Z86GVT7LTC' /> */}
-            <html lang='en' className='!scroll-smooth'>
-                <body className='selection:bg-primary/30 selection:text-white dark:bg-dark-700 bg-gray-50 text-dark-800 dark:text-gray-300 duration-700'>
+            <html lang='en' className='!scroll-smooth font-roboto'>
+                <body className='selection:bg-primary/40 selection:text-light-200 dark:bg-dark-700 bg-light-100 text-dark-800 dark:text-light-400'>
                     {/* <FacebookChat /> */}
                     {children}
                     {/* <SpeedInsights />

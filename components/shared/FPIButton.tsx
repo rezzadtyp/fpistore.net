@@ -18,7 +18,7 @@ const FPIButton: React.FC<FPIButtonProps> = ({
     return (
         <button
             onClick={onClick}
-            className={`rounded-lg px-3 p-1 text-gray-200 font-semibold bg-dark-600 hover:bg-dark-700 border-[1px] border-primary hover:shadow-primary hover:shadow-lg duration-700 active:bg-black active:shadow-xl active:shadow-primary/70 ${className}`}
+            className={`rounded-lg px-3 p-1 font-semibold dark:bg-dark-500 bg-light-200 hover:bg-light-300 active:bg-light-600 dark:hover:bg-dark-700 border-[1px] border-primary dark:border-none hover:shadow-primary hover:shadow-lg duration-700 dark:active:bg-black active:shadow-xl active:shadow-primary/70 ${className}`}
             disabled={disabled}
         >
             {children}
