@@ -3,6 +3,7 @@ import { BsShieldLock } from "react-icons/bs"
 import { fetchData } from "@/app/api/googleSheets"
 import Loading from "@/components/shared/Loading"
 import Clipboard from "@/components/Clipboard"
+import { VscNote } from "react-icons/vsc"
 import {
     Dialog,
     DialogContent,
@@ -193,14 +194,18 @@ const page = async ({ params }: { params: { username: string } }) => {
                                                                         " border-cyan-500/60"
                                                                     }`}
                                                                 >
-                                                                    {row[0] ===
+                                                                    {(row[0] ===
                                                                         "SHARED" &&
-                                                                        row[8] +
-                                                                            " 2024"}
+                                                                        row[8]) ||
+                                                                        (row[0] ===
+                                                                            "PRIVATE" &&
+                                                                            row[6])}
                                                                     {row[0] ===
-                                                                        "PRIVATE" &&
-                                                                        row[6] +
-                                                                            " 2024"}
+                                                                        "shopeeSHARED" &&
+                                                                        row[8]}
+                                                                    {row[0] ===
+                                                                        "shopeePRIVATE" &&
+                                                                        row[8]}
                                                                 </p>
                                                             </div>
                                                         </DialogDescription>

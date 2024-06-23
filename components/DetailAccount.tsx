@@ -180,7 +180,6 @@ const DetailAccount: React.FC<{
                                             data={censorPassword(row[3], 6)}
                                             row0={row[0]}
                                         />
-
                                         {(row[0] === "SHARED" ||
                                             row[0] === "shopeePRIVATE" ||
                                             row[0] === "shopeeSHARED") && (
@@ -190,7 +189,6 @@ const DetailAccount: React.FC<{
                                                         <p className='font-extralight select-none mb-1'>
                                                             Profile Name
                                                         </p>
-
                                                         <DisableForm
                                                             data={row[6]}
                                                             row0={row[0]}
