@@ -12,7 +12,9 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { GoArrowUpRight } from "react-icons/go"
+import { IoMdPerson } from "react-icons/io"
+import { MdGroup } from "react-icons/md"
+import { PiStackDuotone } from "react-icons/pi"
 
 const page = async ({ params }: { params: { username: string } }) => {
     const username = params.username
@@ -44,177 +46,247 @@ const page = async ({ params }: { params: { username: string } }) => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex flex-col w-full mb-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 w-full mb-10'>
                         {data.length > 0 ? (
-                            data.map(
-                                (row: any, i: number) =>
-                                    row[1] === username && (
-                                        <div
-                                            key={i}
-                                            className={`flex duration-1000 p-3 gap-4 border-b-[1px] h-fit ${
+                            data.map((row: any, i: number) => (
+                                <div key={i} className='flex justify-start'>
+                                    <Dialog>
+                                        <DialogTrigger
+                                            className={`flex group justify-center items-start gap-5 duration-500 rounded-lg dark:text-light-200 ${
                                                 row[0] === "SHARED" &&
-                                                " !border-fuchsia-500 "
-                                            } ${
-                                                row[0] === "PRIVATE" &&
-                                                " !border-cyan-500 "
+                                                "  text-dark-800"
                                             }
-                        `}
+                                                ${
+                                                    row[0] === "PRIVATE" &&
+                                                    "  text-dark-800"
+                                                }
+                                                ${
+                                                    row[0] === "shopeeSHARED" &&
+                                                    "  text-shopees-800"
+                                                }
+                                                ${
+                                                    row[0] ===
+                                                        "shopeePRIVATE" &&
+                                                    "  text-shopees-800"
+                                                }`}
                                         >
-                                            <div className='w-fit flex justify-start items-start'>
-                                                <p className='text-md font-black lg:text-xl text-transparent bg-gradient-to-bl dark:from-white from-black bg-clip-text cursor-default select-none'>
-                                                    {i + 1}
-                                                </p>
-                                            </div>
-                                            <div className='font-fpifont w-fit flex justify-start items-start'>
-                                                <p className='text-md lg:text-xl text-transparent bg-gradient-to-bl dark:from-white from-black bg-clip-text cursor-default select-none'>
-                                                    {row[0]}
-                                                </p>
-                                            </div>
-                                            <Dialog>
-                                                <DialogTrigger className='flex group w-fit justify-center items-start bg-gradient-to-bl gap-1 duration-500 pl-3 pr-1 py-1 rounded-md from-gray-50 from-15% via-gray-100 to-gray-200 dark:from-dark-500 dark:from-15% dark:via-dark-600 via-40% dark:to-dark-700 to-90%'>
-                                                    {row[2]}
-                                                    <GoArrowUpRight
-                                                        className={`text-2xl primary ${
+                                            <div
+                                                className={`flex flex-col justify-between p-4 gap-5 dark:bg-dark-300 bg-light-300 rounded-xl h-fit w-full
+                                ${row[0] === "SHARED" && "  dark:bg-dark-700"}
+                                                ${
+                                                    row[0] === "PRIVATE" &&
+                                                    "  dark:bg-dark-700"
+                                                }
+                                                ${
+                                                    row[0] === "shopeeSHARED" &&
+                                                    "  dark:bg-shopees-700"
+                                                }
+                                                ${
+                                                    row[0] ===
+                                                        "shopeePRIVATE" &&
+                                                    "  dark:bg-shopees-700"
+                                                }`}
+                                            >
+                                                <div className='flex justify-between items-start gap-10'>
+                                                    <div className='flex flex-col items-start'>
+                                                        <span>{row[2]}</span>
+                                                        <p className='dark:text-light-700 text-sm font-light'>
+                                                            Expire Date :{" "}
+                                                            {(row[0] ===
+                                                                "SHARED" &&
+                                                                row[8]) ||
+                                                                (row[0] ===
+                                                                    "PRIVATE" &&
+                                                                    row[6])}
+                                                            {row[0] ===
+                                                                "shopeeSHARED" &&
+                                                                row[8]}
+                                                            {row[0] ===
+                                                                "shopeePRIVATE" &&
+                                                                row[8]}
+                                                        </p>
+                                                    </div>
+                                                    <VscNote
+                                                        className={`text-lg ${
                                                             row[0] ===
                                                                 "SHARED" &&
-                                                            " group-hover:text-fuchsia-500 "
-                                                        } ${
-                                                            row[0] ===
-                                                                "PRIVATE" &&
-                                                            " group-hover:text-cyan-500 "
-                                                        }`}
+                                                            "  group-hover:text-primary"
+                                                        }
+                                                ${
+                                                    row[0] === "PRIVATE" &&
+                                                    "  group-hover:text-primary"
+                                                }
+                                                ${
+                                                    row[0] === "shopeeSHARED" &&
+                                                    "  group-hover:text-shopee"
+                                                }
+                                                ${
+                                                    row[0] ===
+                                                        "shopeePRIVATE" &&
+                                                    "  group-hover:text-shopee"
+                                                }
+                                                `}
                                                     />
-                                                </DialogTrigger>
-                                                <DialogContent
-                                                    className={`bg-gradient-to-bl w-fit border-0 shadow-xl rounded-xl from-gray-50 from-15% via-gray-100 to-gray-200 dark:from-dark-600 dark:from-15% dark:via-dark-700 via-40% dark:to-dark-800 to-90% text-dark-700 dark:text-white h-96 ${
-                                                        row[0] === "SHARED" &&
-                                                        " shadow-fuchsia-500/70 "
-                                                    } ${
-                                                        row[0] === "PRIVATE" &&
-                                                        " shadow-cyan-500/70 "
-                                                    }`}
-                                                >
-                                                    <DialogHeader className='gap-5'>
-                                                        <DialogTitle className='border-b-[1px] border-white/50 py-2'>
-                                                            Order Detail
-                                                        </DialogTitle>
-                                                        <DialogDescription>
-                                                            <div className='flex flex-col'>
-                                                                <p className='font-extralight select-none mb-1'>
-                                                                    Email
-                                                                </p>
-                                                                <Clipboard
-                                                                    text={
-                                                                        row[2]
-                                                                    }
-                                                                    className={`mb-1 ${
-                                                                        row[0] ===
-                                                                            "SHARED" &&
-                                                                        " border-fuchsia-500/60"
-                                                                    } ${
-                                                                        row[0] ===
-                                                                            "PRIVATE" &&
-                                                                        " border-cyan-500/60"
-                                                                    }`}
-                                                                />
-                                                                <p className='font-extralight select-none mb-1'>
-                                                                    Password
-                                                                </p>
-                                                                <Clipboard
-                                                                    text={
-                                                                        row[3]
-                                                                    }
-                                                                    className={`mb-1 ${
-                                                                        row[0] ===
-                                                                            "SHARED" &&
-                                                                        " border-fuchsia-500/60"
-                                                                    } ${
-                                                                        row[0] ===
-                                                                            "PRIVATE" &&
-                                                                        " border-cyan-500/60"
-                                                                    }`}
-                                                                />
-                                                                {row[0] ===
-                                                                    "SHARED" && (
-                                                                    <>
-                                                                        <div className='flex gap-5'>
-                                                                            <div className='flex-col'>
-                                                                                <p className='font-extralight select-none mb-1'>
-                                                                                    Profile
-                                                                                    Name
-                                                                                </p>
-                                                                                <Clipboard
-                                                                                    text={
-                                                                                        row[6]
-                                                                                    }
-                                                                                    className={`mb-1 ${
-                                                                                        row[0] ===
-                                                                                            "SHARED" &&
-                                                                                        " border-fuchsia-500/60"
-                                                                                    } ${
-                                                                                        row[0] ===
-                                                                                            "PRIVATE" &&
-                                                                                        " border-cyan-500/60"
-                                                                                    }`}
-                                                                                />
-                                                                            </div>
-                                                                            <div className='flex-col'>
-                                                                                <p className='font-extralight select-none mb-1'>
-                                                                                    PIN
-                                                                                </p>
-                                                                                <Clipboard
-                                                                                    text={
-                                                                                        row[7]
-                                                                                    }
-                                                                                    className={`mb-1 ${
-                                                                                        row[0] ===
-                                                                                            "SHARED" &&
-                                                                                        " border-fuchsia-500/60"
-                                                                                    } ${
-                                                                                        row[0] ===
-                                                                                            "PRIVATE" &&
-                                                                                        " border-cyan-500/60"
-                                                                                    }`}
-                                                                                />
-                                                                            </div>
-                                                                        </div>
-                                                                    </>
-                                                                )}
-                                                                <p className='font-extralight select-none mb-1'>
-                                                                    Expired Date
-                                                                </p>
-                                                                <p
-                                                                    className={`w-fit flex gap-1 py-2 px-3 items-center focus:ring-1 focus:ring-fuchsia-500 dark:bg-dark-600 bg-gray-100 drop-shadow-md border rounded-lg ${
-                                                                        row[0] ===
-                                                                            "SHARED" &&
-                                                                        " border-fuchsia-500/60"
-                                                                    } ${
-                                                                        row[0] ===
-                                                                            "PRIVATE" &&
-                                                                        " border-cyan-500/60"
-                                                                    }`}
-                                                                >
-                                                                    {(row[0] ===
-                                                                        "SHARED" &&
-                                                                        row[8]) ||
-                                                                        (row[0] ===
-                                                                            "PRIVATE" &&
-                                                                            row[6])}
-                                                                    {row[0] ===
-                                                                        "shopeeSHARED" &&
-                                                                        row[8]}
-                                                                    {row[0] ===
-                                                                        "shopeePRIVATE" &&
-                                                                        row[8]}
-                                                                </p>
-                                                            </div>
-                                                        </DialogDescription>
-                                                    </DialogHeader>
-                                                </DialogContent>
-                                            </Dialog>
-                                        </div>
-                                    )
-                            )
+                                                </div>
+                                                <div className='flex justify-between items-end w-full'>
+                                                    <div
+                                                        className={`'dark:text-light-700 flex text-sm items-center justify-evenly px-1 py-[2px] gap-1 rounded-lg border-[1px] ' 
+                                                ${
+                                                    row[0] === "SHARED" &&
+                                                    "  dark:bg-primary/30 border-primary dark:border-none"
+                                                }
+                                                ${
+                                                    row[0] === "PRIVATE" &&
+                                                    "  dark:bg-primary/30 border-primary dark:border-none"
+                                                }
+                                                ${
+                                                    row[0] === "shopeeSHARED" &&
+                                                    "  dark:bg-shopee/30 border-shopee dark:border-none"
+                                                }
+                                                ${
+                                                    row[0] ===
+                                                        "shopeePRIVATE" &&
+                                                    "  dark:bg-shopee/30 border-shopee dark:border-none"
+                                                }`}
+                                                    >
+                                                        <PiStackDuotone className='text-md' />{" "}
+                                                        {i + 1}
+                                                    </div>
+                                                    <div className='dark:text-light-700/60 flex gap-2 items-center justify-evenly'>
+                                                        {(row[0] ===
+                                                            "PRIVATE" && (
+                                                            <IoMdPerson className='text-xs' />
+                                                        )) ||
+                                                            (row[0] ===
+                                                                "SHARED" && (
+                                                                <MdGroup className='text-xs' />
+                                                            ))}
+                                                        {(row[0] ===
+                                                            "shopeePRIVATE" && (
+                                                            <IoMdPerson className='text-xs' />
+                                                        )) ||
+                                                            (row[0] ===
+                                                                "shopeeSHARED" && (
+                                                                <MdGroup className='text-xs' />
+                                                            ))}
+                                                        <span className='text-xs capitalize'>
+                                                            {(row[0] ===
+                                                                "shopeePRIVATE" &&
+                                                                "PRIVATE") ||
+                                                                (row[0] ===
+                                                                    "shopeeSHARED" &&
+                                                                    "SHARED")}
+                                                            {(row[0] ===
+                                                                "PRIVATE" &&
+                                                                "PRIVATE") ||
+                                                                (row[0] ===
+                                                                    "SHARED" &&
+                                                                    "SHARED")}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </DialogTrigger>
+                                        <DialogContent
+                                            className={`w-fit border-0 shadow-lg rounded-xl text-dark-700 dark:text-white bg-light-200 h-fit
+                                ${
+                                    (row[0] === "SHARED" ||
+                                        row[0] === "PRIVATE") &&
+                                    "shadow-primary/50 dark:bg-dark-600"
+                                }
+                                ${
+                                    (row[0] === "shopeeSHARED" ||
+                                        row[0] === "shopeePRIVATE") &&
+                                    "shadow-shopee/50 dark:bg-shopees-600"
+                                }`}
+                                        >
+                                            <DialogHeader className='gap-5'>
+                                                <DialogTitle className='border-b-[1px] border-white/50 py-2 flex gap-2'>
+                                                    <VscNote className='text-xl' />
+                                                    Order Detail
+                                                </DialogTitle>
+                                                <DialogDescription>
+                                                    <div className='flex flex-col'>
+                                                        <p className='font-extralight select-none mb-1'>
+                                                            Email
+                                                        </p>
+
+                                                        <Clipboard
+                                                            row0={row[0]}
+                                                            text={row[2]}
+                                                        />
+                                                        <p className='font-extralight select-none mb-1'>
+                                                            Password
+                                                        </p>
+                                                        <Clipboard
+                                                            text={row[3]}
+                                                            row0={row[0]}
+                                                        />
+                                                        {(row[0] === "SHARED" ||
+                                                            row[0] ===
+                                                                "shopeePRIVATE" ||
+                                                            row[0] ===
+                                                                "shopeeSHARED") && (
+                                                            <>
+                                                                <div className='flex gap-5'>
+                                                                    <div className='flex-col'>
+                                                                        <p className='font-extralight select-none mb-1'>
+                                                                            Profile
+                                                                            Name
+                                                                        </p>
+                                                                        <Clipboard
+                                                                            text={
+                                                                                row[6]
+                                                                            }
+                                                                            row0={
+                                                                                row[0]
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                    <div className='flex-col'>
+                                                                        <p className='font-extralight select-none mb-1'>
+                                                                            PIN
+                                                                        </p>
+                                                                        <Clipboard
+                                                                            text={
+                                                                                row[7]
+                                                                            }
+                                                                            row0={
+                                                                                row[0]
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </>
+                                                        )}
+                                                        <p className='font-extralight select-none mb-1'>
+                                                            Expired Date
+                                                        </p>
+
+                                                        <Clipboard
+                                                            text={
+                                                                (row[0] ===
+                                                                    "SHARED" &&
+                                                                    row[8]) ||
+                                                                (row[0] ===
+                                                                    "PRIVATE" &&
+                                                                    row[6]) ||
+                                                                (row[0] ===
+                                                                    "shopeePRIVATE" &&
+                                                                    row[8]) ||
+                                                                (row[0] ===
+                                                                    "shopeeSHARED" &&
+                                                                    row[8])
+                                                            }
+                                                            row0={row[0]}
+                                                        />
+                                                    </div>
+                                                </DialogDescription>
+                                            </DialogHeader>
+                                        </DialogContent>
+                                    </Dialog>
+                                </div>
+                            ))
                         ) : (
                             <div className='w-full h-32 flex flex-col items-start justify-center'>
                                 <p className='font-conthrax text-2xl'>
