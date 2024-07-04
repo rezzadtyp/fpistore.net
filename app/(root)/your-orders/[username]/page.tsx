@@ -71,7 +71,7 @@ const page = async ({ params }: { params: { username: string } }) => {
                                                 }`}
                                         >
                                             <div
-                                                className={`flex flex-col justify-between p-4 gap-5 dark:bg-dark-300 bg-light-300 rounded-xl h-fit w-full
+                                                className={`flex flex-col justify-between p-4 gap-5 dark:bg-dark-400 bg-light-300 rounded-xl h-fit w-full
                                 ${row[0] === "SHARED" && "  dark:bg-dark-700"}
                                                 ${
                                                     row[0] === "PRIVATE" &&
