@@ -102,14 +102,8 @@ export const fetchData = async () => {
         process.env.SHOPEE_SHARED_SHEETS as string
     )) as string[][]
 
-    const infoStock = (await getGoogleSheetsData(
-        process.env.SPREADSHEET_ID as string,
-        process.env.STOCK_SHEETS as string
-    )) as string[][]
-
     const PrivateFormated = formatData(dataPivate)
     const SharedFormated = formatData(dataShared)
-    const StockFormated = formatData(infoStock)
     const ShopeeDedenPrivateFormated = formatData(dataShopeeDedenPivate)
     const ShopeeRifqiPrivateFormated = formatData(dataShopeeRifqiPivate)
     const ShopeeDedenSharedFormated = formatData(dataShopeeDedenShared)
@@ -123,7 +117,6 @@ export const fetchData = async () => {
     const Shopee = [...ShopeeDeden, ...ShopeeRifqi]
     const PrivateData = PrivateFormated.slice(1)
     const SharedData = SharedFormated.slice(1)
-    const Stock = StockFormated.slice(1)
     const Data = [...PrivateData, ...SharedData].sort(
         (a: any, b: any) => a[4] - b[4]
     )
@@ -170,6 +163,5 @@ export const fetchData = async () => {
         allShopee,
         ShopeeShared,
         ShopeePrivate,
-        Stock,
     }
 }

@@ -1,16 +1,8 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react"
-import { fetchData, censorEmail, censorPassword } from "@/app/api/googleSheets"
+import { fetchData } from "@/app/api/googleSheets"
 import { unstable_noStore } from "next/cache"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import { VscNote } from "react-icons/vsc"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { IoMdPerson } from "react-icons/io"
 import { MdGroup } from "react-icons/md"
 import { PiListMagnifyingGlassLight, PiStackDuotone } from "react-icons/pi"
@@ -59,7 +51,6 @@ const Page = async () => {
                                     {"///"}
                                 </span>{" "}
                             </div>
-
                             <div className='flex gap-2 items-center justify-between'>
                                 <div className='flex gap-2 bg-black/10 dark:bg-white/10 rounded-lg px-2 py-1'>
                                     <div className='flex gap-1 font-roboto font-extrabold text-xs items-center justify-center'>
@@ -111,7 +102,6 @@ const Page = async () => {
                                         <MdGroup className='text-sm' />
                                         SHARED
                                     </div>
-
                                     <div className='flex items-center text-xs gap-1'>
                                         <PiStackDuotone className='text-sm' />{" "}
                                         {ShopeeShared.length}
@@ -122,7 +112,6 @@ const Page = async () => {
                                         <IoMdPerson className='text-sm' />
                                         PRIVATE
                                     </div>
-
                                     <div className='flex items-center text-xs gap-1'>
                                         <PiStackDuotone className='text-sm' />{" "}
                                         {ShopeePrivate.length}

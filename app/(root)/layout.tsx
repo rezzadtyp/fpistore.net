@@ -7,11 +7,11 @@ import React, { Suspense } from "react"
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <Suspense fallback={<Loading />}>
-            <main className='relative '>
+            <main className='relative font-roboto'>
                 <Navbar />
                 <div className='flex'>
                     <div className='flex min-h-screen flex-1 flex-col pt-24'>
-                        <div className='mx-auto flex justify-center items-center w-full'>
+                        <div className='mx-auto flex justify-center items-center w-full p-10'>
                             {children}
                         </div>
                     </div>
