@@ -15,6 +15,7 @@ import {
 import { IoMdPerson } from "react-icons/io"
 import { MdGroup } from "react-icons/md"
 import { PiStackDuotone } from "react-icons/pi"
+import DisableForm from "@/components/DisableForm"
 
 const page = async ({ params }: { params: { username: string } }) => {
     const username = params.username
@@ -262,9 +263,8 @@ const page = async ({ params }: { params: { username: string } }) => {
                                                         <p className='font-extralight select-none mb-1'>
                                                             Expired Date
                                                         </p>
-
-                                                        <Clipboard
-                                                            text={
+                                                        <DisableForm
+                                                            data={
                                                                 (row[0] ===
                                                                     "SHARED" &&
                                                                     row[8]) ||
