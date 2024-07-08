@@ -156,6 +156,7 @@ export const fetchData = async () => {
     const Private = getPrivateOnly(Data)
     const Shared = getSharedOnly(Data)
     const allData = getAll(Data)
+
     return {
         Private,
         Shared,
