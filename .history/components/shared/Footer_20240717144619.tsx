@@ -7,10 +7,10 @@ const Footer = () => {
     return (
         <footer className='flex justify-center items-center w-full px-10 lg:px-32 border-t-[1px] border-black/30 dark:border-white/30 bg-gray-100 dark:bg-dark-600 drop-shadow-md'>
             <div className='flex w-full justify-between items-center flex-col md:flex-row lg:flex-row gap-2 py-3'>
-                <div className='flex flex-col lg:flex-row w-full h-full items-center justify-center lg:justify-between '>
+                <div className='flex w-full h-full items-center justify-center md:justify-start '>
                     <Link
                         href='/'
-                        className='flex items-center h-full justify-start'
+                        className='flex items-start h-full justify-start'
                     >
                         <Image
                             width={100}
@@ -27,14 +27,13 @@ const Footer = () => {
                             className='dark:hidden duration-700 h-full'
                         />
                     </Link>
-                    <div className='gap-3 flex flex-col justify-center items-center text-center h-full'>
-                        <p className='text-xs font-extralight max-w-7xl'>
+                    <div className='px-3 flex flex-col justify-between h-full'>
+                        <p className='text-xs font-extralight'>
                             Supplier Netflix Premium terbesar yang telah
-                            memasarkan ribuan akun ke reseller, dengan layanan
-                            berkualitas tinggi, harga terjangkau, dan komitmen
-                            pada pengalaman streaming terbaik.
+                            memasarkan ribuan akun.
                         </p>
-                        <div className='flex gap-5 justify-start'>
+                        <p className='text-xs font-bold'>&copy; 2019-2024</p>
+                        <div className='flex gap-5 justify-start pt-2'>
                             {menuFooter.map((cont) => (
                                 <Link
                                     href={"#in-maintenance"}
@@ -46,21 +45,20 @@ const Footer = () => {
                                 </Link>
                             ))}
                         </div>
-                        <p className='text-xs font-bold'>&copy; 2019-2024</p>
                     </div>
-                    <div className='flex flex-col '>
-                        <div className='flex gap-2 justify-end'>
-                            {contactsButton.map((cont) => (
-                                <Link
-                                    href={cont.url}
-                                    className='p-3 opacity-70 hover:bg-primary/20 dark:hover:bg-primary/20 rounded-md group'
-                                    key={cont.url}
-                                    target='_blank'
-                                >
-                                    {cont.icon}
-                                </Link>
-                            ))}
-                        </div>
+                </div>
+                <div className='flex flex-col '>
+                    <div className='flex gap-2 justify-end'>
+                        {contactsButton.map((cont) => (
+                            <Link
+                                href={cont.url}
+                                className='p-3 opacity-70 hover:bg-primary/20 dark:hover:bg-primary/20 rounded-md group'
+                                key={cont.url}
+                                target='_blank'
+                            >
+                                {cont.icon}
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>

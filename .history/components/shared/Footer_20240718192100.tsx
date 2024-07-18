@@ -28,7 +28,7 @@ const Footer = () => {
                         />
                     </Link>
                     <div className='gap-3 flex flex-col justify-center items-center text-center h-full'>
-                        <p className='text-xs font-extralight max-w-7xl'>
+                        <p className='text-xs font-extralight max-w-96'>
                             Supplier Netflix Premium terbesar yang telah
                             memasarkan ribuan akun ke reseller, dengan layanan
                             berkualitas tinggi, harga terjangkau, dan komitmen
