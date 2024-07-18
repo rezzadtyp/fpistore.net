@@ -40,15 +40,7 @@ const Footer = () => {
                                 </Link>
                             ))}
                         </div>
-                        <p className='text-xs flex font-bold'>
-                            <div className='flex font-fpifont items-end text-primary text-sm h-full mr-2'>
-                                fpi{" "}
-                                <span className='font-fpifont text-dark-500 dark:text-light-300'>
-                                    store.net
-                                </span>
-                            </div>
-                            &copy; 2019-2024
-                        </p>
+                        <p className='text-xs font-bold'>&copy; 2019-2024</p>
                     </div>
                     <div className='flex flex-col '>
                         <div className='flex gap-2 justify-end'>

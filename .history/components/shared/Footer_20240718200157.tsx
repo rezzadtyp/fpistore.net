@@ -41,7 +41,7 @@ const Footer = () => {
                             ))}
                         </div>
                         <p className='text-xs flex font-bold'>
-                            <div className='flex font-fpifont items-end text-primary text-sm h-full mr-2'>
+                            <div className='flex font-fpifont items-end text-primary text-sm h-full'>
                                 fpi{" "}
                                 <span className='font-fpifont text-dark-500 dark:text-light-300'>
                                     store.net
