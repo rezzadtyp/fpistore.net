@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { LampContainer } from "@/components/lamp"
 import Image from "next/image"
 import { PiListMagnifyingGlassLight } from "react-icons/pi"
-import { GoHome } from "react-icons/go"
+import Link from "next/link"
 import FPIButton from "./shared/FPIButton"
 
 const MTPage = () => {
@@ -64,13 +64,20 @@ const MTPage = () => {
                     className='h-full pb-4 pt-16 flex flex-col justify-end items-center gap-3 w-full'
                 >
                     <FPIButton
-                        className='gap-2 flex py-3 text-center justify-center items-center w-fit !bg-dark-500 text-white'
+                        className='gap-5 flex !px-5 !py-4 !rounded-2xl text-start w-fit !bg-dark-500 text-white'
                         onClick={() => {
-                            window.location.href = "/"
+                            window.location.href = "/your-orders"
                         }}
                     >
-                        <GoHome className='text-3xl text-primary' />
-                        <span className='flex flex-col text-start'>Home</span>
+                        <div className='rounded-md bg-primary/20 p-2'>
+                            <PiListMagnifyingGlassLight className='text-3xl text-primary' />
+                        </div>
+                        <span className='flex flex-col text-start'>
+                            Your Order Detail
+                            <p className='font-thin'>
+                                Check your orders detail with Username
+                            </p>
+                        </span>
                     </FPIButton>
                 </motion.div>
             </LampContainer>

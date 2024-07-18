@@ -64,12 +64,14 @@ const MTPage = () => {
                     className='h-full pb-4 pt-16 flex flex-col justify-end items-center gap-3 w-full'
                 >
                     <FPIButton
-                        className='gap-2 flex py-3 text-center justify-center items-center w-fit !bg-dark-500 text-white'
+                        className='gap-5 flex !px-5 !py-4 !rounded-2xl text-start w-fit !bg-dark-500 text-white'
                         onClick={() => {
                             window.location.href = "/"
                         }}
                     >
-                        <GoHome className='text-3xl text-primary' />
+                        <div className='rounded-md bg-primary/20 p-2'>
+                            <GoHome className='text-3xl text-primary' />
+                        </div>
                         <span className='flex flex-col text-start'>Home</span>
                     </FPIButton>
                 </motion.div>
