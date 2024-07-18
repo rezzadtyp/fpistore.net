@@ -6,7 +6,7 @@ import FPIButton from "@/components/shared/FPIButton"
 
 const HeroSection = () => {
     return (
-        <div className='flex flex-col-reverse lg:flex-row justify-between w-full h-[650px] rounded-2xl bg-light-200 dark:bg-dark-500 overflow-hidden p-10 shadow-lg max-w-[1800px] border-[1px] border-primary dark:border-none'>
+        <div className='flex flex-col-reverse lg:flex-row justify-between w-full h-[650px] mb-5 rounded-2xl bg-light-200 dark:bg-dark-500 overflow-hidden p-10 shadow-lg max-w-[1800px] border-[1px] border-primary dark:border-none'>
             <div className='flex items-end'>
                 <div className='flex flex-col lg:max-w-[700px] h-fit gap-5'>
                     <div className='flex flex-col'>
@@ -29,7 +29,7 @@ const HeroSection = () => {
                         <FPIButton
                             className='flex !px-3 !py-2 !border-none !bg-primary text-white w-fit'
                             onClick={() => {
-                                window.location.href = "/anjay"
+                                window.location.href = "/products"
                             }}
                         >
                             <span className='flex flex-col text-start'>

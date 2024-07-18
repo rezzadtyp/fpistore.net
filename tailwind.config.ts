@@ -31,6 +31,9 @@ const config: Config = {
             // => @media (min-width: 1536px) { ... }
         },
         extend: {
+            animation: {
+                scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+            },
             colors: {
                 dark: {
                     100: "#342739",
@@ -67,6 +70,13 @@ const config: Config = {
                 private: "#9121CA",
                 reseller: "#22d3ee",
                 shopee: "#ee4d2d",
+            },
+            keyframes: {
+                scroll: {
+                    to: {
+                        transform: "translate(calc(-50% - 0.5rem))",
+                    },
+                },
             },
             fontFamily: {
                 fpifont: "'FPIFont', sans-serif",

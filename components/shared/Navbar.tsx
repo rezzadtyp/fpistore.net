@@ -5,13 +5,6 @@ import { BsSunFill, BsFillMoonStarsFill } from "react-icons/bs"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import MobileNav from "./MobileNav"
-import { MdOutlineKeyboardArrowDown } from "react-icons/md"
-import { contactsButton } from "@/constant"
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import Image from "next/image"
 
 const Navbar = () => {

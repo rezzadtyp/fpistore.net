@@ -66,8 +66,8 @@ body {
 }
 .__stroke {
     color: transparent;
-    -webkit-text-stroke: 2px #9121ca;
-    text-stroke: 2px #9121ca;
+    -webkit-text-stroke: 1px #9121ca;
+    text-stroke: 1px #9121ca;
 }
 
 @keyframes rightleft {
