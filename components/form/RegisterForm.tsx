@@ -73,7 +73,7 @@ const RegisterForm = () => {
               )}
             />
           </div>
-          <Button type='submit'>Login</Button>
+          <Button type='submit'>register</Button>
         </form>
       </Form>
     </div>
