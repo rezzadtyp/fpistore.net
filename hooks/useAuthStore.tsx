@@ -21,14 +21,14 @@ const useAuthStore = create(
         name: null,
       },
       login: () => {
-        const userLocalStorage = localStorage.getItem("accessToken")
-        const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}")
-        if (userLocalStorage) {
-          set({ isLoggedIn: true, userInfo })
+        const token = localStorage.getItem("accessToken")
+        if (token) {
+          set({ isLoggedIn: true })
+          localStorage.setItem("Authorization", `Bearer ${token}`)
         }
       },
       logout: () => {
-        set({ isLoggedIn: false, userInfo: { email: null, name: null } })
+        set({ isLoggedIn: false })
         localStorage.clear()
       },
       setUserInfo: (userInfo) => {
