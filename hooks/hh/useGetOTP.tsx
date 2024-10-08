@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/lib/axios"
-import { AxiosError } from "axios"
+import axios, { AxiosError } from "axios"
 import { useState } from "react"
 
 interface useGetOtpPayload {
@@ -16,10 +16,13 @@ const useGetOTP = () => {
     setIsLoading(true)
     setError(null)
     try {
-      const { data: responseData } = await axiosInstance.post("/mail", {
-        email: payload.email,
-        forwarder: payload.forwarder,
-      })
+      const { data: responseData } = await axios.post(
+        `https://api.fpiinfo.com/api/mail`,
+        {
+          email: payload.email,
+          forwarder: payload.forwarder,
+        }
+      )
       // console.log(responseData)
       setData(responseData) // Assuming responseData has htmlBody
     } catch (error) {
