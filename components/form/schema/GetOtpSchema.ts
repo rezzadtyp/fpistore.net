@@ -7,7 +7,7 @@ export const getOtpSchema = z.object({
     required_error: "Email is required",
     invalid_type_error: "Input the right email",
   }),
-  email: z.string({
-    required_error: "Email is required",
-  }),
+  // email: z.string({
+  //   required_error: "Email is required",
+  // }),
 })

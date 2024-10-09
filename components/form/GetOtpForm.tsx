@@ -23,15 +23,11 @@ const GetOtpForm = () => {
     resolver: zodResolver(getOtpSchema),
     defaultValues: {
       forwarder: "",
-      email: "rezzadityap@gmail.com",
     },
   })
 
   const onSubmit = (values: z.infer<typeof getOtpSchema>) => {
-    getOtp({
-      email: values.email,
-      forwarder: values.forwarder,
-    })
+    getOtp(values)
   }
 
   return (
