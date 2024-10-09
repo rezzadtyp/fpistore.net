@@ -4,7 +4,6 @@ import { useState } from "react"
 
 interface useGetOtpPayload {
   email: string
-  forwarder: string
 }
 
 const useGetOTP = () => {
@@ -18,7 +17,6 @@ const useGetOTP = () => {
     try {
       const { data: responseData } = await axios.post("/mail", {
         email: payload.email,
-        forwarder: payload.forwarder,
       })
       // console.log(responseData)
       setData(responseData) // Assuming responseData has htmlBody

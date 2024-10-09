@@ -22,8 +22,7 @@ const GetOtpForm = () => {
   const form = useForm<z.infer<typeof getOtpSchema>>({
     resolver: zodResolver(getOtpSchema),
     defaultValues: {
-      forwarder: "",
-      email: "eppeiutama@gmail.com",
+      email: "",
     },
   })
 
@@ -38,7 +37,7 @@ const GetOtpForm = () => {
           <div className='space-y-2'>
             <FormField
               control={form.control}
-              name='forwarder'
+              name='email'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
