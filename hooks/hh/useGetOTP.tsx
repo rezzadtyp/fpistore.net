@@ -3,6 +3,7 @@ import axios, { AxiosError } from "axios"
 import { useState } from "react"
 
 interface useGetOtpPayload {
+  email: string
   forwarder: string
 }
 
@@ -16,6 +17,7 @@ const useGetOTP = () => {
     setError(null)
     try {
       const { data: responseData } = await axios.post("/mail", {
+        email: payload.email,
         forwarder: payload.forwarder,
       })
       // console.log(responseData)

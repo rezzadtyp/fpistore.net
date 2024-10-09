@@ -23,6 +23,7 @@ const GetOtpForm = () => {
     resolver: zodResolver(getOtpSchema),
     defaultValues: {
       forwarder: "",
+      email: "eppeiutama@gmail.com",
     },
   })
 
