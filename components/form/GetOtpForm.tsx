@@ -15,6 +15,8 @@ import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { getOtpSchema } from "./schema/GetOtpSchema"
 import useGetOTP from "@/hooks/hh/useGetOTP"
+import he from "he"
+import Link from "next/link"
 
 const GetOtpForm = () => {
   const { getOtp, isLoading, data, error } = useGetOTP()
@@ -33,7 +35,7 @@ const GetOtpForm = () => {
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className=''>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='flex gap-4 items-end'>
           <div className='space-y-2'>
             <FormField
               control={form.control}
@@ -61,10 +63,11 @@ const GetOtpForm = () => {
       </Form>
 
       {data.htmlBody && (
-        <div
-          className='mt-4 p-4 border border-gray-300 rounded'
-          dangerouslySetInnerHTML={{ __html: data.htmlBody }}
-        />
+        <Button className="mt-10">
+          <Link href={data.htmlBody} target='__blank'>
+            Get Code
+          </Link>
+        </Button>
       )}
     </div>
   )
