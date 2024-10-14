@@ -10,8 +10,8 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Button } from "./ui/button"
-import { useRouter } from "next/navigation"
 import { format } from "date-fns"
+import Link from "next/link"
 
 interface mail {
   subject: string
@@ -25,7 +25,6 @@ interface payload {
 }
 
 const TableOtp = (payload: payload) => {
-  const router = useRouter()
   return (
     <Table>
       <TableCaption>A list of your OTP email.</TableCaption>
@@ -42,8 +41,10 @@ const TableOtp = (payload: payload) => {
             <TableCell className='font-medium'>{data.subject}</TableCell>
             <TableCell>{format(data.date, "yyyy-MM-dd HH:mm:ss")}</TableCell>
             <TableCell>
-              <Button onClick={() => router.push(`${data.link}`)}>
-                Get OTP
+              <Button>
+                <Link href={data.link} target='__blank'>
+                  Get OTP
+                </Link>
               </Button>
             </TableCell>
           </TableRow>
