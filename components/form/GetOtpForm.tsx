@@ -17,6 +17,7 @@ import { getOtpSchema } from "./schema/GetOtpSchema"
 import useGetOTP from "@/hooks/hh/useGetOTP"
 import he from "he"
 import Link from "next/link"
+import TableOtp from "../TableOtp"
 
 const GetOtpForm = () => {
   const { getOtp, isLoading, data, error } = useGetOTP()
@@ -35,7 +36,10 @@ const GetOtpForm = () => {
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='flex gap-4 items-end'>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='flex gap-4 items-end'
+        >
           <div className='space-y-2'>
             <FormField
               control={form.control}
@@ -62,13 +66,9 @@ const GetOtpForm = () => {
         </form>
       </Form>
 
-      {data.htmlBody && (
-        <Button className="mt-10">
-          <Link href={data.htmlBody} target='__blank'>
-            Get Code
-          </Link>
-        </Button>
-      )}
+      {data ? <p>{data.emails[0].subject}</p> : <p>no data found</p>}
+
+      {data ? <TableOtp emails={data?.emails} message={data?.message} /> : null}
     </div>
   )
 }

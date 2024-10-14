@@ -2,7 +2,7 @@ import GetOtpForm from "@/components/form/GetOtpForm"
 
 const GetOtpPage = () => {
   return (
-    <div>
+    <div className='container mx-auto p-24'>
       <GetOtpForm />
     </div>
   )

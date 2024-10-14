@@ -6,9 +6,20 @@ interface useGetOtpPayload {
   email: string
 }
 
+interface IResponseData {
+  message: string
+  emails: [
+    {
+      subject: string
+      date: string
+      link: string
+    }
+  ]
+}
+
 const useGetOTP = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [data, setData] = useState<{ htmlBody?: string }>({})
+  const [data, setData] = useState<IResponseData>()
   const [error, setError] = useState<string | null>(null)
 
   const getOtp = async (payload: useGetOtpPayload) => {
@@ -17,12 +28,13 @@ const useGetOTP = () => {
     try {
       const { data: responseData } = await axiosInstance.post(
         "https://api.fpiinfo.com/api/mail",
+        // "http://localhost:8000/api/mail",
         {
           email: payload.email,
         }
       )
       console.log(responseData)
-      setData(responseData) // Assuming responseData has htmlBody
+      setData(responseData)
     } catch (error) {
       if (error instanceof AxiosError) {
         console.log(error.response?.data)
