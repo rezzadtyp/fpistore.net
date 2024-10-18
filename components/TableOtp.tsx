@@ -41,11 +41,15 @@ const TableOtp = (payload: payload) => {
             <TableCell className='font-medium'>{data.subject}</TableCell>
             <TableCell>{format(data.date, "yyyy-MM-dd HH:mm:ss")}</TableCell>
             <TableCell>
-              <Button>
-                <Link href={data.link} target='__blank'>
-                  Get OTP
-                </Link>
-              </Button>
+              {data.link === "No link" ? (
+                <p>ALAH KONFIRM DO BAY PANTEK ANG</p>
+              ) : (
+                <Button>
+                  <Link href={data.link} target='__blank'>
+                    Link
+                  </Link>
+                </Button>
+              )}
             </TableCell>
           </TableRow>
         ))}
